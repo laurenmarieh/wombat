@@ -28,5 +28,10 @@ export class ExperienceComponent implements OnInit {
     public postExperience(): void {
         this.edit = false;
         this.experiences.push(this.newExperience);
+        this.newExperience = new Experience();
+    }
+
+    public setRating(rating:number){
+        this.newExperience.rating = rating;
     }
 };
