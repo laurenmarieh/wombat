@@ -1,0 +1,44 @@
+
+<div *ngIf="edit">
+    <div class="create-status">
+        
+          <div class="form-group">
+            <input type="text" [(ngModel)]="newExperience.title" name="titleField" placeholder="Enter a title" />
+            <input type="text" [(ngModel)]="newExperience.author" name="authorField" placeholder="Enter an Author" />
+            <input type="text" [(ngModel)]="newExperience.location" name="locationField" placeholder="Enter a Location"/>
+            <textarea class="form-control" rows="3" placeholder="What was your experience?" [(ngModel)]="newExperience.text" name="statusText"></textarea>
+            
+        </div>
+          <label>Set Rating:</label>
+          <span (click)="setRating(1)" class="star">*</span><span class="star" (click)="setRating(2)">*</span>
+          <span class="star" (click)="setRating(3)">*</span><span class="star" (click)="setRating(4)">*</span>
+          <span class="star" (click)="setRating(5)">*</span>
+          <p *ngIf="newExperience.rating != null">Rating: {{newExperience.rating}}</p>
+          <div class="pull-right">
+            <!-- On click of this button, post status -->
+            <button class="btn btn-primary btn-md" (click)="postExperience()">Post</button>
+          </div>
+        
+      </div>
+ </div>
+<button (click)="switchModes()">Add an experience</button>
+
+<div *ngIf="experiences.length > 0" class="list-statuses clearfix">
+        <ul >
+          <!-- Loop through the statuses and display them -->
+          <li *ngFor="let experience of experiences">
+            <div class="status">
+            <p><label>Title: </label> {{experience.title}}</p>
+              <p><label>Author: </label> {{experience.author}}</p>
+                <p><label>Experience: </label> {{experience.text}}</p>
+                <p><label>Rating: </label> {{experience.rating}}</p>
+                <p><label>Location: </label> {{experience.location}}</p>
+              </div>
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="!experiences || experiences.length <= 0">
+          No Current Experiences
+      </div>
+
+
