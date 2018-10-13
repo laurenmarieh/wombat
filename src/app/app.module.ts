@@ -11,16 +11,21 @@ import { TagInputModule } from 'ngx-chips';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { ServicesModule } from './services/services.module';
 import { ForumComponent } from './forum/forum.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
 import { ServicesModule } from './services/services.module';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    ExperienceComponent,
+    LoaderComponent
     LoaderComponent,
     SpeakComponent,
     ForumComponent,
