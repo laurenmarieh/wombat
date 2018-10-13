@@ -12,11 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServicesModule } from './services/services.module';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
