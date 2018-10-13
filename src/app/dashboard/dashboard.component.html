@@ -1,3 +1,12 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let dashboardCard of dashboardCards" class="card col-4">
+      <img class="card-img-top" [src]="dashboardCard.imageUrl" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ dashboardCard.title }}</h5>
+        <p class="card-text">{{ dashboardCard.description }}</p>
+        <a [routerLink]="dashboardCard.route" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
