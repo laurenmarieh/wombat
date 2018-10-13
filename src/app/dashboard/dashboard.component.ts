@@ -4,6 +4,7 @@ import { GeneralService } from '../services/general.service';
 import { TranslationService } from '../services/translation.service';
 import { Language } from '../models/language.enum';
 import { Translation } from '../models/translation.model';
+import { SpeechService } from '../services/speech.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +19,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private generalService: GeneralService,
-    private translateService: TranslationService
+    private translateService: TranslationService,
+    private speechService: SpeechService
   ) {
     this.dashboardCards = [
       {
@@ -73,11 +75,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public translateText() {
-    this.translateService.tranlateText(this.enteredText, Language.Spanish)
-      .subscribe((translations: Translation[]) => {
-        if (translations.length) {
-          this.translated = translations[0].translatedText;
-        }
-      });
+    this.speechService.speak(this.enteredText);
   }
 }
