@@ -6,11 +6,26 @@ import { Experience } from '../models/experience'
 @Injectable()
 export class ExperienceService {
   experiences: Experience[];
+  baseURL: string;
+  
+  constructor(private httpClient: HttpClient) {
+    this.baseURL = "http://localhost:7777/service";
+  }
 
-  constructor(private httpClient: HttpClient) {}
-
-  public getExperiences() : Experience[] {
-    this.experiences = [];  
+  public getExperiences() : Promise<Experience[]> {
+    
+    var htmlOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    
+    // return this.httpClient.get(this.baseURL + '/getExperiences', htmlOptions)
+    // .toPromise()  
+    // .then(() => console.log("got all the things"))
+    // .catch(err => console.log(err));  
+    
+    
     var exp1 = new Experience();
       exp1.title = "Temp Title 1";
       exp1.author = "Lauren";
@@ -32,4 +47,21 @@ export class ExperienceService {
 
       return this.experiences;
     }
-}
+
+    public saveExperience(experience: Experience) : Promise<void> {
+      var htmlOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+
+      return this.httpClient.post(this.baseURL + '/addExperience', JSON.stringify(experience), htmlOptions)
+        .toPromise()
+        .then(() => {
+          console.log("Success");
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    }
+  }
