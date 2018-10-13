@@ -12,13 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { ServicesModule } from './services/services.module';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
