@@ -25,7 +25,6 @@ import { ForumDetailComponent } from './forum-detail/forum-detail.component';
     AppComponent,
     DashboardComponent,
     ExperienceComponent,
-    LoaderComponent
     LoaderComponent,
     SpeakComponent,
     ForumComponent,
