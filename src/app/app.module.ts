@@ -12,12 +12,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ServicesModule } from './services/services.module';
 import { LoaderComponent } from './loader/loader.component';
+import { SpeakComponent } from './speak/speak.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoaderComponent
+    LoaderComponent,
+    SpeakComponent
   ],
   imports: [
     BrowserModule,
