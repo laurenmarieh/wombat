@@ -16,6 +16,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
 import { ServicesModule } from './services/services.module';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
+import { TranslatePipe } from './pipes/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ForumDetailComponent } from './forum-detail/forum-detail.component';
     LoaderComponent,
     SpeakComponent,
     ForumComponent,
-    ForumDetailComponent
+    ForumDetailComponent,
+    TranslatePipe
   ],
   imports: [
     BrowserModule,

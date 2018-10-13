@@ -11,6 +11,9 @@ import { ForumPost } from '../models/forum-post.model';
 })
 export class ForumDetailComponent implements OnInit {
 
+  // Component Text For Translation
+  addTopicText = 'Add Topic';
+
   forum: Forum;
   newPost = new ForumPost();
   newReply = '';

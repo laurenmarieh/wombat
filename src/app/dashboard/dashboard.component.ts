@@ -13,12 +13,9 @@ import { Translation } from '../models/translation.model';
 export class DashboardComponent implements OnInit {
 
   dashboardCards: DashboardCard[];
-  enteredText: string;
-  translated: string;
 
   constructor(
-    private generalService: GeneralService,
-    private translateService: TranslationService
+    private generalService: GeneralService
   ) {
     this.dashboardCards = [
       {
@@ -46,14 +43,5 @@ export class DashboardComponent implements OnInit {
     this.generalService.getText().subscribe(text => {
       console.log(JSON.stringify(text));
     });
-  }
-
-  public translateText() {
-    this.translateService.tranlateText(this.enteredText, Language.Spanish)
-      .subscribe((translations: Translation[]) => {
-        if (translations.length) {
-          this.translated = translations[0].translatedText;
-        }
-      });
   }
 }
