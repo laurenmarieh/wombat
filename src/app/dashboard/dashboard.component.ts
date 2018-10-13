@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.generalService.getText().subscribe(text => {
-      console.log(text);
+      console.log(JSON.stringify(text));
     });
   }
 }
