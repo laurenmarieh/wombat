@@ -3,11 +3,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { GeneralService } from './general.service';
 import { TranslationService } from './translation.service';
+import { ForumService } from './forum.service';
 
 @NgModule({
     providers: [
         GeneralService,
-        TranslationService
+        TranslationService,
+        ForumService
     ],
     declarations: [],
     imports: [
