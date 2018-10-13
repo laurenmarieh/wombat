@@ -6,13 +6,15 @@ import { GeneralService } from './general.service';
 import { ExperienceService } from './experience.service';
 import { TranslationService } from './translation.service';
 import { ForumService } from './forum.service';
+import { SpeechService } from './speech.service';
 
 @NgModule({
     providers: [
         GeneralService,
         ExperienceService,
         TranslationService,
-        ForumService
+        ForumService,
+        SpeechService
     ],
     declarations: [],
     imports: [
