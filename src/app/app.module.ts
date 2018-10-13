@@ -10,8 +10,9 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ServicesModule } from './services/services.module';
 import { ExperienceComponent } from './experience/experience.component';
+import { ServicesModule } from './services/services.module';
+
 
 @NgModule({
   declarations: [

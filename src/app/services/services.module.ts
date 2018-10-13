@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { GeneralService } from './general.service';
+import { ExperienceService } from './experience.service';
 
 @NgModule({
     providers: [
-        GeneralService
+        GeneralService,
+        ExperienceService
     ],
     declarations: [],
     imports: [
