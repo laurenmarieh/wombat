@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Topics</h1>
+  <input type="text" placeholder="Search" (input)="filterTopics()" [(ngModel)]="searchText"/>
+  <button class="btn btn-primary" (click)="addTopicModal(addTopicTemplate)">Add Topic</button>
+  <ng-container *ngIf="(topicsObservable | async)">
+    <div *ngFor="let topic of filteredTopics" class="card">
+      <div class="card-body" routerLink="/forum/{{topic.id}}">
+        <h5 class="card-title">
+          {{ topic.name }}
+        </h5>
+        <div class="card-text">
+          {{ topic.description }}
+        </div>
+        <tag-input [(ngModel)]="topic.tags" [hideForm]="true" [removable]="false"></tag-input>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #addTopicTemplate>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Forum Topic</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form (ngSubmit)="addTopic()">
+        <div class="form-group">
+          <label for="nameInput">Name</label>
+          <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Name" required name="nameInput" [(ngModel)]="newTopic.name">
+        </div>
+        <div class="form-group">
+          <label for="descriptionInput">Description</label>
+          <input type="text" class="form-control" id="descriptionInput" placeholder="Description" name="descriptionInput" [(ngModel)]="newTopic.description">
+        </div>
+        <tag-input [(ngModel)]="newTopic.tags" name="tagsInput"></tag-input>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </ng-template>
+</div>
