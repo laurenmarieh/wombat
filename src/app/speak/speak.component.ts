@@ -50,9 +50,10 @@ export class SpeakComponent implements OnInit{
 
   _prepareSpeakButton(speech: any): void {
     const speakButton = document.getElementById("play");
-    const languages = 'en'; //document.getElementById("languages");
+    const languages = 'en'; // document.getElementById("languages");
+    console.log('WHY!!!', languages)
     speakButton.addEventListener("click", () => {
-      const language = 'en'; //languages.option.value
+      const language = languages;
       const voice = 'Google UK English Male'; //'en-GB' // languages.options[languages.selectedIndex].dataset.name;
       if (language) speech.setLanguage(languages); //.value
       if (voice) speech.setVoice(voice);
