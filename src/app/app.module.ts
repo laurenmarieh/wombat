@@ -11,12 +11,12 @@ import { TagInputModule } from 'ngx-chips';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ExperienceComponent } from './experience/experience.component';
 import { ServicesModule } from './services/services.module';
 import { ForumComponent } from './forum/forum.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
-import { ServicesModule } from './services/services.module';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 
 
@@ -43,7 +43,8 @@ import { ForumDetailComponent } from './forum-detail/forum-detail.component';
     FormsModule,
     AppRoutingModule,
     ServicesModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [
