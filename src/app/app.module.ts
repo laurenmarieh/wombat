@@ -16,7 +16,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ForumComponent } from './forum/forum.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
-import { ServicesModule } from './services/services.module';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 
 @NgModule({
