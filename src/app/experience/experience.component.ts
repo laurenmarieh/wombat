@@ -17,7 +17,8 @@ export class ExperienceComponent implements OnInit {
 
     ngOnInit(): void {
         this.edit = false;
-        this.experiences = this.experienceService.getExperiences();
+        this.experienceService.getExperiences()
+        .then(response => this.experiences = response);
         this.newExperience = new Experience();
     }
 
@@ -27,8 +28,14 @@ export class ExperienceComponent implements OnInit {
 
     public postExperience(): void {
         this.edit = false;
-        this.experiences.push(this.newExperience);
-        this.newExperience = new Experience();
+        this.experienceService.saveExperience(this.newExperience)
+            .then(() => {
+                console.log("It succeeded for great justice");
+                this.experiences.push(this.newExperience);
+                this.newExperience = new Experience();
+            }
+            );
+       
     }
 
     public setRating(rating: number) {
