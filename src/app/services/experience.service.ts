@@ -19,34 +19,17 @@ export class ExperienceService {
         'Content-Type':  'application/json'
       })
     };
-    
-    // return this.httpClient.get(this.baseURL + '/getExperiences', htmlOptions)
-    // .toPromise()  
-    // .then(() => console.log("got all the things"))
-    // .catch(err => console.log(err));  
-    
-    
-    var exp1 = new Experience();
-      exp1.title = "Temp Title 1";
-      exp1.author = "Lauren";
-      exp1.text = "Temp text 2, oh yeah such goodness!"
-      exp1.rating = 1;
-      exp1.tags = ["tag1", "tag2"];
-      exp1.location = "Here and There";
-
-      var exp2 = new Experience();
-      exp2.title = "Temp Title 2";
-      exp2.author = "Keri";
-      exp2.text = "Temp text 2, oh yeah such goodness!"
-      exp2.rating = 3;
-      exp2.tags = ["tag1", "tag2"];
-      exp2.location = "Here and There";
-
-      this.experiences.push(exp1);
-      this.experiences.push(exp2);
-
-      return this.experiences;
-    }
+    return this.httpClient.get<any[]>(this.baseURL + '/getExperiences', htmlOptions)
+      .toPromise()  
+      .then((res): Experience[] => {
+        console.log(res);
+        return res.map(exp => new Experience(exp));
+      }) 
+    .catch(err => {
+      console.log(err);
+      throw(err);
+    });  
+  }
 
     public saveExperience(experience: Experience) : Promise<void> {
       var htmlOptions = {
