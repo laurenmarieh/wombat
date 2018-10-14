@@ -13,6 +13,7 @@ import { MedicalComponent } from './medical/medical.component';
 import { FinancialComponent } from './financial/financial.component';
 import { StoriesComponent } from './stories/stories.component';
 import { EducationComponent } from './education/education.component';
+import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'financial', component: FinancialComponent },
   { path: 'education', component: EducationComponent },
   { path: 'stories', component: StoriesComponent },
+  { path: 'forum-es', component: ForumDetailInSpanishComponent }
   { path: 'register', component: RegisterComponent }
 ];
 

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row justify-content-between top-row">
+    <div class="col-3 col-md-2">
+      <button class="btn btn-primary" (click)="displayNewPost = !displayNewPost">Add a Post</button>
+    </div>
+    <input placeholder="Search" class="form-control col-8" (input)="filterPosts()" [(ngModel)]="searchText" />
+  </div>
+  <form *ngIf="displayNewPost">
+    <div class="form-group">
+      <label for="titleInput"><app-speak [text]="'Title'"></app-speak></label>
+      <input [(ngModel)]="newPost.title" name="titleInput" class="form-control" />
+    </div>
+    <textarea [(ngModel)]="newPost.text" name="textInput" class="form-control"></textarea>
+    <tag-input [(ngModel)]="newPost.tags" name="tagInput"></tag-input>
+    <div class="btn-group">
+      <button class="btn btn-success" (click)="addPost()">Save</button>
+    </div>
+
+  </form>
+  <ng-container *ngIf="forum">
+    <div *ngFor="let post of filteredPosts" class="card">
+      <div class="card-body">
+        <h5 class="card-title col-12"><app-speak [text]="post.title | translate | async"></app-speak></h5>
+        <div class="card-text col-12"><app-speak [text]="post.text | translate | async"></app-speak></div>
+        <tag-input [(ngModel)]="post.tags" [hideForm]="true" [removable]="false"></tag-input>
+        <div *ngFor="let reply of post.replies">
+          <app-speak [text]="reply | translate | async"></app-speak>
+        </div>
+        <button class="btn col-3" *ngIf="replying !== post.id; else replyTemplate" (click)="replying = post.id">Reply</button>
+        <ng-template #replyTemplate>
+          <textarea class="form-control" [(ngModel)]="newReply"></textarea>
+          <div class="btn-group">
+            <button class="btn" (click)="cancelReply()">Cancel</button>
+            <button class="btn btn-success" (click)="saveReply(post.id)">Save</button>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </ng-container>
+</div>
+
