@@ -2,18 +2,18 @@
     <div class="container new-story-form">
   
       <div class="form-group">
-        <label><app-speak [text]="'Enter a Title'"></app-speak></label>
+        <label><app-speak [text]="'Enter a Title *'"></app-speak></label>
         <input class="form-control" type="text" [(ngModel)]="newStory.title" name="titleField" placeholder="Title" />
       </div>
       <div class="form-group">
-        <label><app-speak [text]="'What is your story?'"></app-speak></label>
+        <label><app-speak [text]="'What is your story? *'"></app-speak></label>
         <textarea class="form-control" rows="3" [(ngModel)]="newStory.text" name="statusText"></textarea>
       </div>
       <tag-input [(ngModel)]="newStory.tags" name="tagInput" [addOnBlur]="true"></tag-input>
       <div class="row justify-content-end">
         <!-- On click of this button, post status -->
         <div class="col">
-          <button class="btn btn-primary btn-md post-btn" (click)="postStory()">Post</button>
+          <button class="btn btn-primary btn-md post-btn" (click)="postStory()" [disabled]="!newStory.title || !newStory.text">Post</button>
         </div>
       </div>
     </div>
