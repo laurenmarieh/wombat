@@ -4,7 +4,7 @@
       <img class="card-img-top" [src]="dashboardCard.imageUrl" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title"><app-speak [text]="dashboardCard.title"></app-speak></h5>
-        <p class="card-text">{{ dashboardCard.description }}</p>
+        <p class="card-text"><app-speak [text]="dashboardCard.description"></app-speak></p>
         <a [routerLink]="dashboardCard.route" class="btn btn-primary">Go To {{ dashboardCard.title }}</a>
       </div>
     </div>

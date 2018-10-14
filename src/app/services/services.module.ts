@@ -7,6 +7,8 @@ import { ExperienceService } from './experience.service';
 import { TranslationService } from './translation.service';
 import { ForumService } from './forum.service';
 import { SpeechService } from './speech.service';
+import { ApiService } from './api.service';
+import { CustomerService } from './customer.service';
 
 @NgModule({
     providers: [
@@ -14,7 +16,9 @@ import { SpeechService } from './speech.service';
         ExperienceService,
         TranslationService,
         ForumService,
-        SpeechService
+        SpeechService,
+        ApiService,
+        CustomerService
     ],
     declarations: [],
     imports: [
