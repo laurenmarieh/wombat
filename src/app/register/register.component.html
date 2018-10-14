@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label>
+            <app-speak text="Username"></app-speak>
+          </label>
+          <input [(ngModel)]="newUser.username" class="form-control" name="username" />
+        </div>
+        <div class="form-group">
+            <label>
+              <app-speak text="Password"></app-speak>
+            </label>
+            <input class="form-control" name="password" type="password" />
+          </div>
+        <div class="form-group">
+          <label>
+            <app-speak text="Email"></app-speak>
+          </label>
+          <input [(ngModel)]="newUser.email" class="form-control" name="email" type="email" />
+        </div>
+        <div class="form-group">
+          <label>
+            <app-speak text="Location"></app-speak>
+          </label>
+          <input [(ngModel)]="newUser.location" class="form-control" name="location" />
+        </div>
+        <div class="form-group">
+          <label>
+            <app-speak text="About"></app-speak>
+          </label>
+          <textarea [(ngModel)]="newUser.about" class="form-control" name="about">
+          </textarea>
+          <small><app-speak text="This is visible by all users."></app-speak></small>
+        </div>
+        <div class="form-group">
+          <label>
+            <app-speak text="WhatsApp Id"></app-speak>
+          </label>
+          <input [(ngModel)]="newUser.whatsAppID" class="form-control" name="whatsapp" />
+        </div>
+        <div class="form-group">
+          <label>
+            <app-speak text="Country of Origin"></app-speak>
+          </label>
+          <input [(ngModel)]="newUser.originCountry" class="form-control" name="originCountry" />
+        </div>
+        <button class="btn btn-success" (click)="register()" routerLink="/login">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -26,6 +26,7 @@ import { MedicalComponent } from './medical/medical.component';
 import { LegalComponent } from './legal/legal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { EducationComponent } from './education/education.component';
     MedicalComponent,
     LegalComponent,
     FinancialComponent,
-    EducationComponent
+    EducationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
