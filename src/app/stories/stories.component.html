@@ -25,7 +25,7 @@
       <div class="card" *ngFor="let story of stories">
         <div class="card-body">
           <h5 class="card-title"><label><app-speak [text]="'Title: ' + story.title"></app-speak></label></h5>
-          <h6 class="card-subtitle"><label><app-speak [text]="'Author: ' + story.author"></app-speak></label></h6>
+          <h6 *ngIf="story.author" class="card-subtitle"><label><app-speak [text]="'Author: ' + story.author"></app-speak></label></h6>
           <div class="card-text"><label><app-speak [text]="'Story: ' + story.text"></app-speak></label></div>
           <tag-input  [(ngModel)]="story.tags" [hideForm]="true" [removable]="false"></tag-input>
           <div>
