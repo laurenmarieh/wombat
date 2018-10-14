@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardCard } from '../models/dashboard-card.model';
-import { GeneralService } from '../services/general.service';
-import { TranslationService } from '../services/translation.service';
-import { Language } from '../models/language.enum';
-import { Translation } from '../models/translation.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,16 +12,13 @@ export class DashboardComponent implements OnInit {
   enteredText: string;
   translated: string;
 
-  constructor(
-    private generalService: GeneralService,
-    private translateService: TranslationService
-  ) {
+  constructor() {
     this.dashboardCards = [
       {
         title: 'Forums',
         imageUrl: '../../assets/images/forum.jpg',
         description: 'A place for you to talk with your community',
-        route: '/dashboard'
+        route: '/forum'
       },
       {
         title: 'Stories',
@@ -67,17 +60,5 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.generalService.getText().subscribe(text => {
-      console.log(JSON.stringify(text));
-    });
-  }
-
-  public translateText() {
-    this.translateService.tranlateText(this.enteredText, Language.Spanish)
-      .subscribe((translations: Translation[]) => {
-        if (translations.length) {
-          this.translated = translations[0].translatedText;
-        }
-      });
   }
 }

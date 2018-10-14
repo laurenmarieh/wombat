@@ -7,7 +7,6 @@ export class GeneralService {
   constructor(private httpClient: HttpClient) { }
 
   public getText(): Observable<any> {
-
-    return this.httpClient.get('http://localhost:7777/hello');
+    return this.httpClient.get('http://localhost:7777/service');
   }
 }
