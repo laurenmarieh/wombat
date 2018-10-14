@@ -29,6 +29,10 @@ import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
 import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
 import { RegisterComponent } from './register/register.component';
+import { TransportationComponent } from './transportation/transportation.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MapComponent } from './map/map.component';
+import { KeyContactsComponent } from './key-contacts/key-contacts.component';
 
 
 @NgModule({
@@ -50,7 +54,11 @@ import { RegisterComponent } from './register/register.component';
     FinancialComponent,
     EducationComponent,
     ForumDetailInSpanishComponent,
-    RegisterComponent
+    RegisterComponent,
+    TransportationComponent,
+    CalendarComponent,
+    MapComponent,
+    KeyContactsComponent
   ],
   imports: [
     BrowserModule,

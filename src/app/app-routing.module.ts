@@ -15,6 +15,10 @@ import { StoriesComponent } from './stories/stories.component';
 import { EducationComponent } from './education/education.component';
 import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
 import { RegisterComponent } from './register/register.component';
+import { TransportationComponent } from './transportation/transportation.component';
+import { MapComponent } from './map/map.component';
+import { KeyContactsComponent } from './key-contacts/key-contacts.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -30,8 +34,12 @@ const routes: Routes = [
   { path: 'medical', component: MedicalComponent },
   { path: 'financial', component: FinancialComponent },
   { path: 'education', component: EducationComponent },
+  { path: 'transportation', component: TransportationComponent },
+  { path: 'map', component: MapComponent },
+  { path: 'contact', component: KeyContactsComponent },
+  { path: 'calendar', component: CalendarComponent },
   { path: 'stories', component: StoriesComponent },
-  { path: 'forum-es', component: ForumDetailInSpanishComponent }
+  { path: 'forum-es', component: ForumDetailInSpanishComponent },
   { path: 'register', component: RegisterComponent }
 ];
 

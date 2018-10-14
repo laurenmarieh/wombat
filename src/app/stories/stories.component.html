@@ -28,6 +28,11 @@
           <h6 class="card-subtitle"><label><app-speak [text]="'Author: ' + story.author"></app-speak></label></h6>
           <div class="card-text"><label><app-speak [text]="'Story: ' + story.text"></app-speak></label></div>
           <tag-input  [(ngModel)]="story.tags" [hideForm]="true" [removable]="false"></tag-input>
+          <div>
+            <button [class.btn-danger]="story.likes > 0" [class.btn-light]="!story.likes || story.likes <= 0" class="btn" (click)="story.likes = story.likes > 0 ? 0 : 1">
+              <span [class.fas]="story.likes > 0" [class.far]="!story.likes || story.likes <= 0" class="fa-heart"></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

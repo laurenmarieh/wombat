@@ -2,16 +2,16 @@
   <div class="container new-experience-form">
 
     <div class="form-group">
-      <label><app-speak [text]="'Enter a Title'"></app-speak></label>
-      <input class="form-control" type="text" [(ngModel)]="newExperience.title" name="titleField" placeholder="Title" />
+      <label><app-speak [text]="'Enter a Title *'"></app-speak></label>
+      <input class="form-control" type="text" [(ngModel)]="newExperience.title" name="titleField" placeholder="Title" required />
     </div>
     <div class="form-group">
       <label><app-speak [text]="'Enter a Location'"></app-speak></label>
       <input class="form-control" type="text" [(ngModel)]="newExperience.location" name="locationField" placeholder="Enter a Location" />
     </div>
     <div class="form-group">
-      <label><app-speak [text]="'What was your experience?'"></app-speak></label>
-      <textarea class="form-control" rows="3" [(ngModel)]="newExperience.text" name="statusText"></textarea>
+      <label><app-speak [text]="'What was your experience? *'"></app-speak></label>
+      <textarea class="form-control" rows="3" [(ngModel)]="newExperience.text" name="statusText" required></textarea>
     </div>
     <div class="row">
       <div class="rating-label"><app-speak [text]="'Rating'"></app-speak></div>
@@ -42,7 +42,7 @@
     <div class="row justify-content-end">
       <!-- On click of this button, post status -->
       <div class="col">
-        <button class="btn btn-primary btn-md post-btn" (click)="postExperience()">Post</button>
+        <button class="btn btn-primary btn-md post-btn" (click)="postExperience()" [disabled]="!newExperience.title || !newExperience.text">Post</button>
       </div>
 
     </div>
@@ -56,7 +56,7 @@
     <div class="card" *ngFor="let experience of experiences">
       <div class="card-body">
         <h5 class="card-title"><label><app-speak [text]="'Title: ' + experience.title"></app-speak></label></h5>
-        <h6 class="card-subtitle"><label><app-speak [text]="'Author: ' + experience.author"></app-speak></label></h6>
+        <h6 class="card-subtitle" *ngIf="experience.author"><label><app-speak [text]="'Author: ' + experience.author"></app-speak></label></h6>
         <div class="card-text"><label><app-speak [text]="'Experience: ' + experience.text"></app-speak></label></div>
         <div>
           <span [class.fas]="experience.rating > 0" [class.far]="!experience.rating || experience.rating <= 0" class="fa-star"></span>
@@ -65,7 +65,7 @@
           <span [class.fas]="experience.rating > 3" [class.far]="!experience.rating || experience.rating <= 3" class="fa-star"></span>
           <span [class.fas]="experience.rating > 4" [class.far]="!experience.rating || experience.rating <= 4" class="fa-star"></span>
         </div>
-        <div><label><app-speak [text]="'Location: ' + experience.location"></app-speak></label></div>
+        <div *ngIf="experience.location"><label><app-speak [text]="'Location: ' + experience.location"></app-speak></label></div>
         <tag-input  [(ngModel)]="experience.tags" [hideForm]="true" [removable]="false"></tag-input>
       </div>
     </div>
