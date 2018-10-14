@@ -9,6 +9,7 @@ import { ForumService } from './forum.service';
 import { SpeechService } from './speech.service';
 import { ApiService } from './api.service';
 import { CustomerService } from './customer.service';
+import { UserService } from './user.service';
 import { StoryService } from './story.service';
 
 @NgModule({
@@ -19,8 +20,9 @@ import { StoryService } from './story.service';
         ForumService,
         SpeechService,
         ApiService,
-        CustomerService,
-        StoryService
+        CustomerService, 
+        UserService,
+        StoryService,
     ],
     declarations: [],
     imports: [
