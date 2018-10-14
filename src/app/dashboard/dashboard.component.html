@@ -1,7 +1,4 @@
 <div class="container">
-  <input [(ngModel)]="enteredText" type="text"/>
-  <div>{{ translated }}</div>
-  <button class="btn btn-primary" (click)="translateText()">Translate</button>
   <div class="row">
     <div *ngFor="let dashboardCard of dashboardCards" class="card col-4">
       <img class="card-img-top" [src]="dashboardCard.imageUrl" alt="Card image cap">
