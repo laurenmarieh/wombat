@@ -18,6 +18,7 @@ import { ForumComponent } from './forum/forum.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { ForumDetailComponent } from './forum-detail/forum-detail.component';
     LoaderComponent,
     SpeakComponent,
     ForumComponent,
-    ForumDetailComponent
+    ForumDetailComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
