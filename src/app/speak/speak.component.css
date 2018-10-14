@@ -1,3 +1,7 @@
 small {
   padding-left: 8px;
 }
+
+span {
+  word-break: break-all;
+}

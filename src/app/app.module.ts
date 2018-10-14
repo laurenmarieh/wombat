@@ -28,7 +28,7 @@ import { LegalComponent } from './legal/legal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
 import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
-
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -49,7 +49,8 @@ import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-det
     LegalComponent,
     FinancialComponent,
     EducationComponent,
-    ForumDetailInSpanishComponent
+    ForumDetailInSpanishComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

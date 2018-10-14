@@ -1,19 +1,17 @@
-export class Experience {
+export class Story {
     title: string;
     author: string;
     text: string;
-    rating: number;
+    likes: number;
     tags: string[];
-    location: string;
 
     constructor(appData?: any) {
         if (appData) {
             this.title = appData.title;
             this.author = appData.author;
             this.text = appData.text;
-            this.rating = appData.rating;
+            this.likes = appData.rating;
             this.tags = appData.tags;
-            this.location = appData.location;
         }
     }
 }

@@ -1,28 +1,31 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Experience } from '../models/experience';
+import { UserModel } from '../models/user.model';
 
 @Injectable()
-export class ExperienceService {
-  experiences: Experience[];
+export class UserService {
+  user: UserModel;
   baseURL: string;
+  TOKEN = 'TOKEN';
 
   constructor(private httpClient: HttpClient) {
     this.baseURL = 'http://localhost:7777/service';
   }
 
-  public getExperiences(): Promise<Experience[]> {
+  public getUser(): Promise<UserModel> {
+
+    const id = localStorage.getItem(this.TOKEN);
 
     const htmlOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.httpClient.get<any[]>(this.baseURL + '/getExperiences', htmlOptions)
+    return this.httpClient.post(this.baseURL + '/getUser', { 'id': id }, htmlOptions)
       .toPromise()
-      .then((res): Experience[] => {
-        console.log(res);
-        return res.map(exp => new Experience(exp));
+      .then((res): UserModel => {
+        this.user = new UserModel(res[0]);
+        return this.user;
       })
       .catch(err => {
         console.log(err);
@@ -30,14 +33,14 @@ export class ExperienceService {
       });
   }
 
-  public saveExperience(experience: Experience): Promise<void> {
+  public registerUser(user: UserModel): Promise<void> {
     const htmlOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
 
-    return this.httpClient.post(this.baseURL + '/addExperience', JSON.stringify(experience), htmlOptions)
+    return this.httpClient.post(this.baseURL + '/register', JSON.stringify(user), htmlOptions)
       .toPromise()
       .then(() => {
         console.log('Success');
