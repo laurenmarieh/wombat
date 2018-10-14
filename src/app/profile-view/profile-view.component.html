@@ -5,12 +5,11 @@
       <img class="profile-picture" [src]="photoLink" alt="Profile Picture">
     </div>
     <div class="col-12 col-md-8">
-      <p>
+      <p *ngIf="user.whatsAppID">
         <a [href]="whatsAppLink" target="_blank">Connect with WhatsApp</a>
       </p>
-      <p><strong>Username:</strong>{{user.username}}</p>
-      <p><strong>Country of Origin:</strong>{{user.originCountry}}</p>
-      <p><strong>Location:</strong>{{user.location}}</p>
+      <p><strong>Country of Origin:</strong> {{user.originCountry}}</p>
+      <p><strong>Location:</strong> {{user.location}}</p>
       <p><strong>About Me:</strong> {{user.about}}</p>
     </div>
   </div>
