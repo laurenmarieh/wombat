@@ -1,44 +1,75 @@
+<div class="container" *ngIf="edit">
+  <div class="container new-experience-form">
 
-<div *ngIf="edit">
-    <div class="create-status">
-        
-          <div class="form-group">
-            <input type="text" [(ngModel)]="newExperience.title" name="titleField" placeholder="Enter a title" />
-            <input type="text" [(ngModel)]="newExperience.author" name="authorField" placeholder="Enter an Author" />
-            <input type="text" [(ngModel)]="newExperience.location" name="locationField" placeholder="Enter a Location"/>
-            <textarea class="form-control" rows="3" placeholder="What was your experience?" [(ngModel)]="newExperience.text" name="statusText"></textarea>
-            
+    <div class="form-group">
+      <label>Enter a Title</label>
+      <input class="form-control" type="text" [(ngModel)]="newExperience.title" name="titleField" placeholder="Title" />
+    </div>
+    <div class="form-group">
+      <label>Enter a Location</label>
+      <input class="form-control" type="text" [(ngModel)]="newExperience.location" name="locationField" placeholder="Enter a Location" />
+    </div>
+    <div class="form-group">
+      <label>What was your experience?</label>
+      <textarea class="form-control" rows="3" [(ngModel)]="newExperience.text" name="statusText"></textarea>
+    </div>
+    <div class="row">
+      <div class="rating-label">Rating</div>
+      <div class="btn-group rating">
+        <button class="btn" (click)="setRating(1)">
+          <span [class.fas]="newExperience.rating > 0" [class.far]="!newExperience.rating || newExperience.rating <= 0"
+            class="fa-star"></span>
+        </button>
+        <button class="btn" (click)="setRating(2)">
+          <span [class.fas]="newExperience.rating > 1" [class.far]="!newExperience.rating || newExperience.rating <= 1"
+            class="fa-star"></span>
+        </button>
+        <button class="btn" (click)="setRating(3)">
+          <span [class.fas]="newExperience.rating > 2" [class.far]="!newExperience.rating || newExperience.rating <= 2"
+            class="fa-star"></span>
+        </button>
+        <button class="btn" (click)="setRating(4)">
+          <span [class.fas]="newExperience.rating > 3" [class.far]="!newExperience.rating || newExperience.rating <= 3"
+            class="fa-star"></span>
+        </button>
+        <button class="btn" (click)="setRating(5)">
+          <span [class.fas]="newExperience.rating > 4" [class.far]="!newExperience.rating || newExperience.rating <= 4"
+            class="fa-star"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="row justify-content-end">
+      <!-- On click of this button, post status -->
+      <div class="col">
+        <button class="btn btn-primary btn-md" (click)="postExperience()">Post</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<div class="container">
+  <button *ngIf="!edit" class="btn btn-primary add-experience" (click)="switchModes()">Add an Experience</button>
+
+  <div *ngIf="experiences.length > 0" class="list-statuses clearfix">
+    <div class="card" *ngFor="let experience of experiences">
+      <div class="card-body">
+        <h5 class="card-title"><label>Title: </label> {{experience.title}}</h5>
+        <h6 class="card-subtitle"><label>Author: </label> {{experience.author}}</h6>
+        <div class="card-text"><label>Experience: </label> {{experience.text}}</div>
+        <div>
+          <span [class.fas]="experience.rating > 0" [class.far]="!experience.rating || experience.rating <= 0" class="fa-star"></span>
+          <span [class.fas]="experience.rating > 1" [class.far]="!experience.rating || experience.rating <= 1" class="fa-star"></span>
+          <span [class.fas]="experience.rating > 2" [class.far]="!experience.rating || experience.rating <= 2" class="fa-star"></span>
+          <span [class.fas]="experience.rating > 3" [class.far]="!experience.rating || experience.rating <= 3" class="fa-star"></span>
+          <span [class.fas]="experience.rating > 4" [class.far]="!experience.rating || experience.rating <= 4" class="fa-star"></span>
         </div>
-          <label>Set Rating:</label>
-          <span (click)="setRating(1)" class="star">*</span><span class="star" (click)="setRating(2)">*</span>
-          <span class="star" (click)="setRating(3)">*</span><span class="star" (click)="setRating(4)">*</span>
-          <span class="star" (click)="setRating(5)">*</span>
-          <p *ngIf="newExperience.rating != null">Rating: {{newExperience.rating}}</p>
-          <div class="pull-right">
-            <!-- On click of this button, post status -->
-            <button class="btn btn-primary btn-md" (click)="postExperience()">Post</button>
-          </div>
-        
+        <div><label>Location: </label> {{experience.location}}</div>
       </div>
- </div>
-<button (click)="switchModes()">Add an experience</button>
-
-<div *ngIf="experiences.length > 0" class="list-statuses clearfix">
-        <ul >
-          <!-- Loop through the statuses and display them -->
-          <li *ngFor="let experience of experiences">
-            <div class="status">
-            <p><label>Title: </label> {{experience.title}}</p>
-              <p><label>Author: </label> {{experience.author}}</p>
-                <p><label>Experience: </label> {{experience.text}}</p>
-                <p><label>Rating: </label> {{experience.rating}}</p>
-                <p><label>Location: </label> {{experience.location}}</p>
-              </div>
-          </li>
-        </ul>
-      </div>
-      <div *ngIf="!experiences || experiences.length <= 0">
-          No Current Experiences
-      </div>
-
-
+    </div>
+  </div>
+  <div *ngIf="!experiences || experiences.length <= 0">
+    No Current Experiences
+  </div>
+</div>
