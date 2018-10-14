@@ -22,7 +22,8 @@ export class ProfileViewComponent implements OnInit {
     this.userService.getUser()
       .then(res => {
         this.user = res;
-        this.photoLink = this.photoLink + this.user.photo;
+        this.photoLink = this.user.photo ? this.photoLink + this.user.photo : this.photoLink + 'blank.jpg';
+      
         this.whatsAppLink = this.whatsAppLink + this.user.whatsAppID;
       });
     
