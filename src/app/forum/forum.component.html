@@ -15,7 +15,7 @@
           <app-speak [text]="topic.name"></app-speak>
         </h5>
         <div class="card-text">
-          <app-speak [text]="topic.description"></app-speak>
+          <app-speak [text]="topic.description | translate | async"></app-speak>
         </div>
         <tag-input [(ngModel)]="topic.tags" [hideForm]="true" [removable]="false"></tag-input>
       </div>
