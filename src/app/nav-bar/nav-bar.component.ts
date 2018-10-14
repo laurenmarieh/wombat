@@ -9,20 +9,26 @@ import { UserService } from '../services/user.service';
 })
 
 export class NavBarComponent implements OnInit {
-   loggedOn: boolean = false;
    userName: string;
     
    constructor(private customerService: CustomerService, private userService: UserService){}
-
+    title: string = 'anchor';
+    
     ngOnInit(){
-        this.loggedOn = this.customerService.isLogged();
-        
         if(this.loggedOn){
             this.userService.getUser()
             .then(res => {
                 this.userName = res.userName;
             });
         }
+    }
+
+    public logOff(){
+        localStorage.removeItem('TOKEN');
+    }
+
+    get loggedOn(){
+        return this.customerService.isLogged();
     }
 
 }
