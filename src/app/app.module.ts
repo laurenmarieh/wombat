@@ -27,6 +27,7 @@ import { LegalComponent } from './legal/legal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     LegalComponent,
     FinancialComponent,
     EducationComponent,
-    NavBarComponent
+    NavBarComponent,
+    RegisterComponent
+
   ],
   imports: [
     BrowserModule,

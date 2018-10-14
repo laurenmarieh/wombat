@@ -1,26 +1,17 @@
-<div class="profile-view">
-    <h1>{{user.userName}}</h1>
-    <div class="row">
-      <div class="col-4">
-        <img class="profile-picture" [src]="photoLink" alt="Profile Picture">
-      </div>
-      <div class="personal-info col-4">
-        <p>
-          <a [href]="whatsAppLink" target="_blank">Connect with WhatsApp</a>
-        </p>
-        <p><strong>Country of Origin:</strong>{{user.originCountry}}</p>
-        <p><strong>Location:</strong>{{location}}</p>
-        <p><strong>About Me:</strong>  {{user.about}}}</p>
-      </div>
-          <a href="https://api.whatsapp.com/send?phone=15134005374" target="_blank">
-            Connect with WhatsApp
-          </a>
-        </p>
-        <p><app-speak [text]="'Display Name: Target'"></app-speak></p>
-        <p><app-speak [text]="'Name: Target the Cat'"></app-speak></p>
-        <p><app-speak [text]="'Country of Origin: United States'"></app-speak></p>
-        <p><app-speak [text]="'Location: Saint Louis'"></app-speak></p>
-        <p><app-speak [text]="'About Me: I like to take naps all day and eat catnip.  I was born in Fort Morgan, Colorado.  I moved to Houma, Louisiana in 2015 and Saint Louis, Missouri in 2016.'"></app-speak></p>
-        </div>
+<div class="container" *ngIf="user">
+  <h1>{{user.userName}}</h1>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <img class="profile-picture" [src]="photoLink" alt="Profile Picture">
     </div>
-
+    <div class="col-12 col-md-8">
+      <p>
+        <a [href]="whatsAppLink" target="_blank">Connect with WhatsApp</a>
+      </p>
+      <p><strong>Username:</strong>{{user.username}}</p>
+      <p><strong>Country of Origin:</strong>{{user.originCountry}}</p>
+      <p><strong>Location:</strong>{{user.location}}</p>
+      <p><strong>About Me:</strong> {{user.about}}</p>
+    </div>
+  </div>
+</div>

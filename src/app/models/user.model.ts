@@ -7,8 +7,8 @@ export class UserModel {
     originCountry: string;
     photo: string;
 
-    constructor(appData? : any){
-        if(appData){
+    constructor(appData?: any) {
+        if (appData) {
             this.userName = appData.username;
             this.email = appData.email;
             this.location = appData.location;

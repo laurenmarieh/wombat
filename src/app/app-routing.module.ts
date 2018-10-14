@@ -13,6 +13,7 @@ import { MedicalComponent } from './medical/medical.component';
 import { FinancialComponent } from './financial/financial.component';
 import { StoriesComponent } from './stories/stories.component';
 import { EducationComponent } from './education/education.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'medical', component: MedicalComponent },
   { path: 'financial', component: FinancialComponent },
   { path: 'education', component: EducationComponent },
-  { path: 'stories', component: StoriesComponent }
+  { path: 'stories', component: StoriesComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({
