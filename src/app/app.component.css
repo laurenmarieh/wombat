@@ -1,0 +1,14 @@
+button {
+  margin-left: 15px;
+}
+
+@media (max-width: 992px) {
+  .wide button {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.navbar-brand {
+  font-size: 2.5em;
+}

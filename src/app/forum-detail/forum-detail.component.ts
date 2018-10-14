@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ForumService } from '../services/forum.service';
 import { Forum } from '../models/forum.model';
 import { ForumPost } from '../models/forum-post.model';
+import { Tag } from '../models/tag.model';
 
 @Component({
   selector: 'app-forum-detail',
@@ -19,6 +20,8 @@ export class ForumDetailComponent implements OnInit {
   newReply = '';
   displayNewPost = false;
   replying: string;
+  searchText: string;
+  filteredPosts: ForumPost[];
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +36,7 @@ export class ForumDetailComponent implements OnInit {
     this.forumService.getForumById(id)
       .subscribe((f: Forum) => {
         this.forum = f;
+        this.filterPosts();
       });
   }
 
@@ -55,6 +59,26 @@ export class ForumDetailComponent implements OnInit {
         this.getForum();
         this.newReply = '';
       });
+  }
+
+  public filterPosts(): void {
+    if (!this.searchText) {
+      this.filteredPosts = this.forum.posts;
+    } else {
+      this.filteredPosts = this.forum.posts.filter((post: ForumPost) => {
+        if (post.title && post.title.includes(this.searchText)) {
+          return true;
+        } else if (post.text && post.text.includes(this.searchText)) {
+          return true;
+        } else if (post.tags && post.tags.length) {
+          const filteredTags = post.tags.filter((tag: Tag) => {
+            return tag.display.includes(this.searchText);
+          });
+          return !!filteredTags.length;
+        }
+        return false;
+      });
+    }
   }
 
 }

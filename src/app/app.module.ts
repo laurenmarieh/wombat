@@ -11,22 +11,41 @@ import { TagInputModule } from 'ngx-chips';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ExperienceComponent } from './experience/experience.component';
+import { ServicesModule } from './services/services.module';
 import { ForumComponent } from './forum/forum.component';
 import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
-import { ServicesModule } from './services/services.module';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 import { TranslatePipe } from './pipes/translate.pipe';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { StoriesComponent } from './stories/stories.component';
+import { EmploymentComponent } from './employment/employment.component';
+import { MedicalComponent } from './medical/medical.component';
+import { LegalComponent } from './legal/legal.component';
+import { FinancialComponent } from './financial/financial.component';
+import { EducationComponent } from './education/education.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    ExperienceComponent,
     LoaderComponent,
     SpeakComponent,
     ForumComponent,
     ForumDetailComponent,
-    TranslatePipe
+    TranslatePipe,
+    LoginPageComponent,
+    ProfileViewComponent,
+    StoriesComponent,
+    EmploymentComponent,
+    MedicalComponent,
+    LegalComponent,
+    FinancialComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +59,8 @@ import { TranslatePipe } from './pipes/translate.pipe';
     FormsModule,
     AppRoutingModule,
     ServicesModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [

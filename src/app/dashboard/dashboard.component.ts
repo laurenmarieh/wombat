@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardCard } from '../models/dashboard-card.model';
-import { GeneralService } from '../services/general.service';
-import { TranslationService } from '../services/translation.service';
-import { Language } from '../models/language.enum';
-import { Translation } from '../models/translation.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,35 +9,56 @@ import { Translation } from '../models/translation.model';
 export class DashboardComponent implements OnInit {
 
   dashboardCards: DashboardCard[];
+  enteredText: string;
+  translated: string;
 
-  constructor(
-    private generalService: GeneralService
-  ) {
+  constructor() {
     this.dashboardCards = [
       {
-        title: 'Test',
-        imageUrl: '../../assets/images/trees.jpg',
-        description: 'test',
-        route: '/dashboard'
+        title: 'Forums',
+        imageUrl: '../../assets/images/forum.jpg',
+        description: 'A place for you to talk with your community',
+        route: '/forum'
       },
       {
-        title: 'Test',
-        imageUrl: '../../assets/images/city.jpg',
-        description: 'test',
-        route: '/dashboard'
+        title: 'Stories',
+        imageUrl: '../../assets/images/stories.jpg',
+        description: 'Share your personal experiences',
+        route: '/stories'
       },
       {
-        title: 'Test',
-        imageUrl: '../../assets/images/lake.jpg',
-        description: 'test',
-        route: '/dashboard'
+        title: 'Employment',
+        imageUrl: '../../assets/images/employment.jpg',
+        description: 'Resources to help you find employment',
+        route: '/employment'
+      },
+      {
+        title: 'Medical',
+        imageUrl: '../../assets/images/medical.jpg',
+        description: 'Medical resources',
+        route: '/medical'
+      },
+      {
+        title: 'Legal',
+        imageUrl: '../../assets/images/legal.png',
+        description: 'Legal resources',
+        route: '/legal'
+      },
+      {
+        title: 'Education',
+        imageUrl: '../../assets/images/education.jpg',
+        description: 'Education resources',
+        route: '/education'
+      },
+      {
+        title: 'Financial',
+        imageUrl: '../../assets/images/financial.jpeg',
+        description: 'Financial resources',
+        route: '/financial'
       }
     ];
   }
 
   ngOnInit(): void {
-    this.generalService.getText().subscribe(text => {
-      console.log(JSON.stringify(text));
-    });
   }
 }

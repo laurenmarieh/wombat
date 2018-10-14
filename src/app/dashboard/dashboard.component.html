@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let dashboardCard of dashboardCards" class="card col-4">
+    <div *ngFor="let dashboardCard of dashboardCards" class="card col-sm-12 col-md-6 col-lg-4">
       <img class="card-img-top" [src]="dashboardCard.imageUrl" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ dashboardCard.title }}</h5>
-        <p class="card-text">{{ dashboardCard.description }}</p>
-        <a [routerLink]="dashboardCard.route" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title"><app-speak [text]="dashboardCard.title"></app-speak></h5>
+        <p class="card-text"><app-speak [text]="dashboardCard.description"></app-speak></p>
+        <a [routerLink]="dashboardCard.route" class="btn btn-primary">Go To {{ dashboardCard.title }}</a>
       </div>
     </div>
   </div>
