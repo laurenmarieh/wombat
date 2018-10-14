@@ -8,3 +8,7 @@ button {
     margin-bottom: 8px;
   }
 }
+
+.navbar-brand {
+  font-size: 2.5em;
+}

@@ -1,33 +1,41 @@
 <div class="container">
-  <div class="row justify-content-between">
-    <button class="btn btn-primary col-3" (click)="displayNewPost = !displayNewPost">New Post</button>
-    <input placeholder="Search" class="form-control col-8" />
+  <div class="row justify-content-between top-row">
+    <div class="col-3 col-md-2">
+      <button class="btn btn-primary" (click)="displayNewPost = !displayNewPost">Add a Post</button>
+    </div>
+    <input placeholder="Search" class="form-control col-8" (input)="filterPosts()" [(ngModel)]="searchText" />
   </div>
   <form *ngIf="displayNewPost">
     <div class="form-group">
-      <label for="titleInput">Title</label>
+      <label for="titleInput"><app-speak [text]="'Title'"></app-speak></label>
       <input [(ngModel)]="newPost.title" name="titleInput" class="form-control" />
     </div>
     <textarea [(ngModel)]="newPost.text" name="textInput" class="form-control"></textarea>
     <tag-input [(ngModel)]="newPost.tags" name="tagInput"></tag-input>
-    <button class="btn btn-success" (click)="addPost()">Save</button>
+    <div class="btn-group">
+      <button class="btn btn-success" (click)="addPost()">Save</button>
+    </div>
+
   </form>
   <ng-container *ngIf="forum">
-    <div *ngFor="let post of forum.posts" class="card">
-      <h5 class="card-title col-12">{{ post.title }}</h5>
-      <div class="card-text col-12">{{ post.text }}</div>
-      <tag-input [(ngModel)]="post.tags" [hideForm]="true" [removable]="false"></tag-input>
-      <div *ngFor="let reply of post.replies">
-        {{ reply }}
-      </div>
-      <button class="btn col-3" *ngIf="replying !== post.id; else replyTemplate" (click)="replying = post.id">Reply</button>
-      <ng-template #replyTemplate>
-        <textarea class="form-control" [(ngModel)]="newReply"></textarea>
-        <div class="btn-group">
-          <button class="btn" (click)="cancelReply()">Cancel</button>
-          <button class="btn btn-success" (click)="saveReply(post.id)">Save</button>
+    <div *ngFor="let post of filteredPosts" class="card">
+      <div class="card-body">
+        <h5 class="card-title col-12"><app-speak [text]="post.title"></app-speak></h5>
+        <div class="card-text col-12"><app-speak [text]="post.text"></app-speak></div>
+        <tag-input [(ngModel)]="post.tags" [hideForm]="true" [removable]="false"></tag-input>
+        <div *ngFor="let reply of post.replies">
+          <app-speak [text]="reply"></app-speak>
         </div>
-      </ng-template>
+        <button class="btn col-3" *ngIf="replying !== post.id; else replyTemplate" (click)="replying = post.id">Reply</button>
+        <ng-template #replyTemplate>
+          <textarea class="form-control" [(ngModel)]="newReply"></textarea>
+          <div class="btn-group">
+            <button class="btn" (click)="cancelReply()">Cancel</button>
+            <button class="btn btn-success" (click)="saveReply(post.id)">Save</button>
+          </div>
+        </ng-template>
+      </div>
+
     </div>
   </ng-container>
 </div>

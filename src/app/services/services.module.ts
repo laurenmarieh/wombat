@@ -10,6 +10,7 @@ import { SpeechService } from './speech.service';
 import { ApiService } from './api.service';
 import { CustomerService } from './customer.service';
 import { UserService } from './user.service';
+import { StoryService } from './story.service';
 
 @NgModule({
     providers: [
@@ -20,7 +21,8 @@ import { UserService } from './user.service';
         SpeechService,
         ApiService,
         CustomerService, 
-        UserService
+        UserService,
+        StoryService,
     ],
     declarations: [],
     imports: [
