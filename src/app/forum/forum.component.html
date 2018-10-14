@@ -1,15 +1,15 @@
 <div class="container">
-  <h1>Topics</h1>
+  <h1><app-speak [text]="'Topics'"></app-speak></h1>
   <input type="text" placeholder="Search" (input)="filterTopics()" [(ngModel)]="searchText"/>
   <button class="btn btn-primary" (click)="addTopicModal(addTopicTemplate)">Add Topic</button>
   <ng-container *ngIf="(topicsObservable | async)">
     <div *ngFor="let topic of filteredTopics" class="card">
       <div class="card-body" routerLink="/forum/{{topic.id}}">
         <h5 class="card-title">
-          {{ topic.name }}
+          <app-speak [text]="topic.name"></app-speak>
         </h5>
         <div class="card-text">
-          {{ topic.description }}
+          <app-speak [text]="topic.description"></app-speak>
         </div>
         <tag-input [(ngModel)]="topic.tags" [hideForm]="true" [removable]="false"></tag-input>
       </div>
@@ -18,7 +18,7 @@
 
   <ng-template #addTopicTemplate>
     <div class="modal-header">
-      <h4 class="modal-title pull-left">Add Forum Topic</h4>
+      <h4 class="modal-title pull-left"><app-speak [text]="'Add Forum Topic'"></app-speak></h4>
       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -26,11 +26,11 @@
     <div class="modal-body">
       <form (ngSubmit)="addTopic()">
         <div class="form-group">
-          <label for="nameInput">Name</label>
+          <label for="nameInput"><app-speak [text]="'Name'"></app-speak></label>
           <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Name" required name="nameInput" [(ngModel)]="newTopic.name">
         </div>
         <div class="form-group">
-          <label for="descriptionInput">Description</label>
+          <label for="descriptionInput"><app-speak [text]="'Description'"></app-speak></label>
           <input type="text" class="form-control" id="descriptionInput" placeholder="Description" name="descriptionInput" [(ngModel)]="newTopic.description">
         </div>
         <tag-input [(ngModel)]="newTopic.tags" name="tagsInput"></tag-input>

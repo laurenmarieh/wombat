@@ -19,7 +19,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { SpeakComponent } from './speak/speak.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 import { LoginPageComponent } from './login-page/login-page.component'
-
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginPageComponent } from './login-page/login-page.component'
     SpeakComponent,
     ForumComponent,
     ForumDetailComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
