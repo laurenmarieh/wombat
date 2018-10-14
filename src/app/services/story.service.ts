@@ -1,28 +1,28 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Experience } from '../models/experience';
+import { Story } from '../models/story.model';
 
 @Injectable()
-export class ExperienceService {
-  experiences: Experience[];
+export class StoryService {
+  stories: Story[];
   baseURL: string;
 
   constructor(private httpClient: HttpClient) {
     this.baseURL = 'http://localhost:7777/service';
   }
 
-  public getExperiences(): Promise<Experience[]> {
+  public getStories(): Promise<Story[]> {
 
     const htmlOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.httpClient.get<any[]>(this.baseURL + '/getExperiences', htmlOptions)
+    return this.httpClient.get<any[]>(this.baseURL + '/getStories', htmlOptions)
       .toPromise()
-      .then((res): Experience[] => {
+      .then((res): Story[] => {
         console.log(res);
-        return res.map(exp => new Experience(exp));
+        return res.map(exp => new Story(exp));
       })
       .catch(err => {
         console.log(err);
@@ -30,14 +30,14 @@ export class ExperienceService {
       });
   }
 
-  public saveExperience(experience: Experience): Promise<void> {
+  public saveStory(story: Story): Promise<void> {
     const htmlOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
 
-    return this.httpClient.post(this.baseURL + '/addExperience', JSON.stringify(experience), htmlOptions)
+    return this.httpClient.post(this.baseURL + '/addStory', JSON.stringify(story), htmlOptions)
       .toPromise()
       .then(() => {
         console.log('Success');
