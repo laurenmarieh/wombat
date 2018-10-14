@@ -1,3 +1,38 @@
-<p>
-  stories works!
-</p>
+<div class="container" *ngIf="edit">
+    <div class="container new-story-form">
+  
+      <div class="form-group">
+        <label><app-speak [text]="'Enter a Title'"></app-speak></label>
+        <input class="form-control" type="text" [(ngModel)]="newStory.title" name="titleField" placeholder="Title" />
+      </div>
+      <div class="form-group">
+        <label><app-speak [text]="'What is your story?'"></app-speak></label>
+        <textarea class="form-control" rows="3" [(ngModel)]="newStory.text" name="statusText"></textarea>
+      </div>
+      <tag-input [(ngModel)]="newStory.tags" name="tagInput" [addOnBlur]="true"></tag-input>
+      <div class="row justify-content-end">
+        <!-- On click of this button, post status -->
+        <div class="col">
+          <button class="btn btn-primary btn-md post-btn" (click)="postStory()">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <button *ngIf="!edit" class="btn btn-primary add-story" (click)="switchModes()">Add an Story</button>
+  
+    <div *ngIf="stories && stories.length > 0" class="list-statuses clearfix">
+      <div class="card" *ngFor="let story of stories">
+        <div class="card-body">
+          <h5 class="card-title"><label><app-speak [text]="'Title: ' + story.title"></app-speak></label></h5>
+          <h6 class="card-subtitle"><label><app-speak [text]="'Author: ' + story.author"></app-speak></label></h6>
+          <div class="card-text"><label><app-speak [text]="'Story: ' + story.text"></app-speak></label></div>
+          <tag-input  [(ngModel)]="story.tags" [hideForm]="true" [removable]="false"></tag-input>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!stories || stories.length <= 0">
+      <app-speak [text]="'No Current Stories'"></app-speak>
+    </div>
+  </div>
+  

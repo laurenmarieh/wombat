@@ -1,38 +1,35 @@
-.new-experience-form {
+.new-story-form {
   .row {
-    margin: 0;
+      margin: 0;
   }
 }
-
 .rating {
   .btn:focus {
-    box-shadow: none;
+      box-shadow: none;
   }
 }
-
 .rating-label {
   padding-right: 8px;
   margin-top: auto;
   margin-bottom: auto;
 }
-
 .fa-star {
   padding: 4px 4px 4px 0;
 }
-
-.add-experience {
+.add-story {
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
 .justify-content-end {
   .col {
-    flex-grow: inherit;
-    margin-bottom: 8px;
-    padding: 0;
+      flex-grow: inherit;
+      margin-bottom: 8px;
+      padding: 0;
   }
 }
 
 .post-btn {
   margin-top: 8px;
 }
+
