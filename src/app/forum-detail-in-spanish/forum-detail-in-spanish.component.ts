@@ -6,11 +6,11 @@ import { ForumPost } from '../models/forum-post.model';
 import { Tag } from '../models/tag.model';
 
 @Component({
-  selector: 'app-forum-detail',
-  templateUrl: './forum-detail.component.html',
-  styleUrls: ['./forum-detail.component.css']
+  selector: 'app-forum-detail-in-spanish',
+  templateUrl: './forum-detail-in-spanish.component.html',
+  styleUrls: ['./forum-detail-in-spanish.component.css']
 })
-export class ForumDetailComponent implements OnInit {
+export class ForumDetailInSpanishComponent implements OnInit {
 
   // Component Text For Translation
   addTopicText = 'Add Topic';
@@ -82,3 +82,4 @@ export class ForumDetailComponent implements OnInit {
   }
 
 }
+
