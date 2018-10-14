@@ -38,6 +38,7 @@
         </button>
       </div>
     </div>
+    <tag-input [(ngModel)]="newExperience.tags" name="tagInput"></tag-input>
     <div class="row justify-content-end">
       <!-- On click of this button, post status -->
       <div class="col">
@@ -51,7 +52,7 @@
 <div class="container">
   <button *ngIf="!edit" class="btn btn-primary add-experience" (click)="switchModes()">Add an Experience</button>
 
-  <div *ngIf="experiences.length > 0" class="list-statuses clearfix">
+  <div *ngIf="experiences && experiences.length > 0" class="list-statuses clearfix">
     <div class="card" *ngFor="let experience of experiences">
       <div class="card-body">
         <h5 class="card-title"><label>Title: </label> {{experience.title}}</h5>
@@ -65,6 +66,7 @@
           <span [class.fas]="experience.rating > 4" [class.far]="!experience.rating || experience.rating <= 4" class="fa-star"></span>
         </div>
         <div><label>Location: </label> {{experience.location}}</div>
+        <tag-input [(ngModel)]="experience.tags" [hideForm]="true" [removable]="false"></tag-input>
       </div>
     </div>
   </div>
