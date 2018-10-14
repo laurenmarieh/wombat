@@ -1,5 +1,5 @@
 <div class="container" *ngIf="user">
-  <h1>{{user.userName}}</h1>
+  <h1><app-speak [text]="user.userName"></app-speak></h1>
   <div class="row">
     <div class="col-12 col-md-4">
       <img class="profile-picture" [src]="photoLink" alt="Profile Picture">
@@ -8,9 +8,18 @@
       <p *ngIf="user.whatsAppID">
         <a [href]="whatsAppLink" target="_blank">Connect with WhatsApp</a>
       </p>
-      <p><strong>Country of Origin:</strong> {{user.originCountry}}</p>
-      <p><strong>Location:</strong> {{user.location}}</p>
-      <p><strong>About Me:</strong> {{user.about}}</p>
+      <p>
+        <strong><app-speak [text]="'Country of Origin: '"></app-speak></strong>
+        <app-speak [text]="user.originCountry"></app-speak>
+      </p>
+      <p>
+        <strong><app-speak [text]="'Location: '"></app-speak></strong>
+        <app-speak [text]="user.location"></app-speak>
+      </p>
+      <p>
+        <strong><app-speak [text]="'About Me: '"></app-speak></strong>
+        <app-speak [text]="user.about"></app-speak>
+      </p>
     </div>
   </div>
 </div>
