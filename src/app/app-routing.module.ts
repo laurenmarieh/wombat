@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'financial', component: FinancialComponent },
   { path: 'education', component: EducationComponent },
   { path: 'stories', component: StoriesComponent },
-  { path: 'forum-es', component: ForumDetailInSpanishComponent }
+  { path: 'forum-es', component: ForumDetailInSpanishComponent },
   { path: 'register', component: RegisterComponent }
 ];
 
