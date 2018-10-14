@@ -20,6 +20,12 @@ import { SpeakComponent } from './speak/speak.component';
 import { ForumDetailComponent } from './forum-detail/forum-detail.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { StoriesComponent } from './stories/stories.component';
+import { EmploymentComponent } from './employment/employment.component';
+import { MedicalComponent } from './medical/medical.component';
+import { LegalComponent } from './legal/legal.component';
+import { FinancialComponent } from './financial/financial.component';
+import { EducationComponent } from './education/education.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
     ForumComponent,
     ForumDetailComponent,
     LoginPageComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    StoriesComponent,
+    EmploymentComponent,
+    MedicalComponent,
+    LegalComponent,
+    FinancialComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,

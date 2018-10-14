@@ -24,37 +24,37 @@ export class DashboardComponent implements OnInit {
         title: 'Stories',
         imageUrl: '../../assets/images/stories.jpg',
         description: 'Share your personal experiences',
-        route: '/dashboard'
+        route: '/stories'
       },
       {
         title: 'Employment',
         imageUrl: '../../assets/images/employment.jpg',
         description: 'Resources to help you find employment',
-        route: '/dashboard'
+        route: '/employment'
       },
       {
         title: 'Medical',
         imageUrl: '../../assets/images/medical.jpg',
         description: 'Medical resources',
-        route: '/dashboard'
+        route: '/medical'
       },
       {
         title: 'Legal',
         imageUrl: '../../assets/images/legal.png',
         description: 'Legal resources',
-        route: '/dashboard'
+        route: '/legal'
       },
       {
         title: 'Education',
         imageUrl: '../../assets/images/education.jpg',
         description: 'Education resources',
-        route: '/dashboard'
+        route: '/education'
       },
       {
         title: 'Financial',
         imageUrl: '../../assets/images/financial.jpeg',
         description: 'Financial resources',
-        route: '/dashboard'
+        route: '/financial'
       }
     ];
   }
