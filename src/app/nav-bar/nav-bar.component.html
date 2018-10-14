@@ -1,0 +1,29 @@
+<div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto my-2">
+      <li class="nav-item wide">
+        <button type="button" class="btn btn-outline-dark" routerLink="/experience"><span class="fas fa-star fa-2x"></span></button>
+      </li>
+      <li class="nav-item wide">
+        <button type="button" class="btn btn-outline-dark"><span class="fas fa-users fa-2x"></span></button>
+      </li>
+      <li class="nav-item wide">
+        <button type="button" class="btn btn-outline-dark"><span class="fas fa-car-side fa-2x"></span></button>
+      </li>
+      <li *ngIf="loggedOn" class="nav-item wide">
+        <button type="button" class="btn btn-outline-dark" routerLink="/profile"><span class="fas fa-user fa-2x"></span></button>
+        <p>Hello, {{userName}}</p>
+      </li>
+    </ul>
+    <div class="nav-item dropdown my-2" dropdown>
+      <a dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Language
+      </a>
+      <div *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Vietnamese</a>
+        <a class="dropdown-item" href="#">Spanish</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Klingon</a>
+      </div>
+    </div>
+  </div>
