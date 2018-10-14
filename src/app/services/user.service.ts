@@ -24,7 +24,6 @@ export class UserService {
     return this.httpClient.post(this.baseURL + '/getUser', {"id":id}, htmlOptions)
       .toPromise()  
       .then((res): UserModel => {
-        console.log(res);
         this.user = new UserModel(res[0]); 
         return this.user;
       }) 
