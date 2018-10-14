@@ -1,4 +1,4 @@
 <div>
   <span>{{ text }}</span>
-  <small *ngIf="displaySpeech" class="fas fa-volume-down" (click)="speak()"></small>
+  <small *ngIf="displaySpeech && text" class="fas fa-volume-down" (click)="speak()"></small>
 </div>
