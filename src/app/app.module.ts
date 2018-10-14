@@ -27,6 +27,9 @@ import { MedicalComponent } from './medical/medical.component';
 import { LegalComponent } from './legal/legal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
+import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
+
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { EducationComponent } from './education/education.component';
     MedicalComponent,
     LegalComponent,
     FinancialComponent,
-    EducationComponent
+    EducationComponent,
+    ForumDetailInSpanishComponent
   ],
   imports: [
     BrowserModule,

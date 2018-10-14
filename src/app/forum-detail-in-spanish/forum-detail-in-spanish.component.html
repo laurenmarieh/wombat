@@ -20,11 +20,11 @@
   <ng-container *ngIf="forum">
     <div *ngFor="let post of filteredPosts" class="card">
       <div class="card-body">
-        <h5 class="card-title col-12"><app-speak [text]="post.title"></app-speak></h5>
-        <div class="card-text col-12"><app-speak [text]="post.text"></app-speak></div>
+        <h5 class="card-title col-12"><app-speak [text]="post.title | translate | async"></app-speak></h5>
+        <div class="card-text col-12"><app-speak [text]="post.text | translate | async"></app-speak></div>
         <tag-input [(ngModel)]="post.tags" [hideForm]="true" [removable]="false"></tag-input>
         <div *ngFor="let reply of post.replies">
-          <app-speak [text]="reply"></app-speak>
+          <app-speak [text]="reply | translate | async"></app-speak>
         </div>
         <button class="btn col-3" *ngIf="replying !== post.id; else replyTemplate" (click)="replying = post.id">Reply</button>
         <ng-template #replyTemplate>
@@ -39,3 +39,4 @@
     </div>
   </ng-container>
 </div>
+
