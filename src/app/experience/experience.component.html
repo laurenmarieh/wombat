@@ -23,7 +23,7 @@
  </div>
 <button (click)="switchModes()">Add an experience</button>
 
-<div *ngIf="experiences.length > 0" class="list-statuses clearfix">
+<div *ngIf="experiences && experiences.length > 0" class="list-statuses clearfix">
         <ul >
           <!-- Loop through the statuses and display them -->
           <li *ngFor="let experience of experiences">
@@ -37,7 +37,7 @@
           </li>
         </ul>
       </div>
-      <div *ngIf="!experiences || experiences.length <= 0">
+      <div *ngIf="!experiences">
           No Current Experiences
       </div>
 
