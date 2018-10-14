@@ -14,12 +14,12 @@ export class TranslationService {
   // tslint:disable-next-line:max-line-length
   private googleTranslateUrl = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyAqlE6rgTnCjv_KezxSEJzknwTFWzxIaq4&model=base';
 
-  public tranlateText(value: string, language: Language): Observable<Translation[]> {
+  public tranlateText(value: string, language: Language): Observable<string> {
     return this.httpClient.get<TranslationResponse>(`${this.googleTranslateUrl}&q=${value}&target=${language}`)
       .pipe(
         map((raw: any) => {
           const result = deserialize(TranslationResponse, raw);
-          return result.data.translations;
+          return result.data.translations.length ? result.data.translations[0].translatedText : null;
         }),
         catchError((error: any) => {
           return throwError(error);

@@ -4,7 +4,7 @@
   <div class="btn-group">
     <button class="btn btn-primary" (click)="addTopicModal(addTopicTemplate)">Add Topic</button>
   </div>
-  
+
   <ng-container *ngIf="(topicsObservable | async)">
     <div *ngFor="let topic of filteredTopics" class="card">
       <div class="card-body" routerLink="/forum/{{topic.id}}">
