@@ -27,6 +27,7 @@ import { MedicalComponent } from './medical/medical.component';
 import { LegalComponent } from './legal/legal.component';
 import { FinancialComponent } from './financial/financial.component';
 import { EducationComponent } from './education/education.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import {ForumDetailInSpanishComponent} from './forum-detail-in-spanish/forum-detail-in-spanish.component';
 import { RegisterComponent } from './register/register.component';
 
@@ -49,8 +50,10 @@ import { RegisterComponent } from './register/register.component';
     LegalComponent,
     FinancialComponent,
     EducationComponent,
+    NavBarComponent,
     ForumDetailInSpanishComponent,
     RegisterComponent
+
   ],
   imports: [
     BrowserModule,
